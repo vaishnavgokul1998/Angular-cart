@@ -1,0 +1,22 @@
+<ng-container *ngIf="show">
+    <ng-container [ngSwitch]="type">
+        <ng-container *ngSwitchCase="'error'">
+            <div class="error-container">
+                <mat-icon>highlight_off</mat-icon>
+                <span>{{msg}}</span>
+            </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'success'">
+            <div class="success-container">
+                <mat-icon>check_circle</mat-icon>
+                <span>{{msg}}</span>
+            </div>
+        </ng-container>
+        <div *ngSwitchDefault>
+            <div class="error-container">
+                <mat-icon>highlight_off</mat-icon>
+                <span>Technical difficulties</span>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>

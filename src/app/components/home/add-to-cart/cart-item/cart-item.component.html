@@ -1,0 +1,38 @@
+<div class="card shadow-sm h-100">
+    <div class="text-center p-2">
+        <img class="card-img-top " src="{{cartItem.book.image_url}}" alt="Card image">
+    </div>
+    <div class="card-body">
+        <h4 class="card-title fw-bold">{{cartItem.book.title}}</h4>
+        <div class="d-flex">
+            <p class="cross-text pe-1" *ngIf="cartItem.book.discount > 0">{{cartItem.book.price | currency:'INR'}}</p>
+            <p class="h6 pe-1">{{cartItem.book.priceAfterDiscount | currency:'INR'}}</p>
+            <p class="h6 pe-1 text-success fw-bold" *ngIf="cartItem.book.discount > 0">{{cartItem.book.discount}}%</p>
+        </div>
+        <div class="clearfix">
+            <div class="float-start">
+                <div class="card">
+                    <div class="row text-center ps-3 pe-3 pt-1">
+                        <div class="col">
+                            <span class="qty-counter fw-bold" (click)="counterClick(counter.DECREMENT,cartItem)"
+                                style="font-size: x-large;">-</span>
+                        </div>
+                        <div class="col">
+                            {{cartItem.quantity}}
+                        </div>
+                        <div class="col">
+                            <span class="qty-counter fw-bold" (click)="counterClick(counter.INCREMENT,cartItem)"
+                                style="font-size:large;">+</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="float-end">
+                <button class="bg-danger" (click)="deleteCartItem(cartItem)" mat-stroked-button>
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

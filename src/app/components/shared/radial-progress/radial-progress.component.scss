@@ -1,0 +1,50 @@
+:host{
+    .circle_box{
+        position: relative;
+        width: 150px;
+        height: 150px;
+        .indicator_div{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            mat-icon{
+                position: absolute;
+                font-size: 50px;
+                top: 50px;
+                left: 50px;
+            }
+            svg{
+                position: absolute;
+                width: 100px;
+                height: 100px;    
+                transform: rotate(-90deg);
+                overflow: initial;
+            } 
+            p{
+                position: absolute;
+                bottom: -10px; 
+            }
+        }
+    }
+ 
+      
+    circle{
+        stroke-width:10px;
+        fill:none;    
+    }
+    circle:nth-child(1){ stroke: rgb(158, 151, 151) }
+    circle:nth-child(2){
+        stroke: #f00; 
+        position: relative;
+        z-index: 1;    
+    }
+    circle:nth-child(2){
+        stroke: rgb(25, 241, 36); 
+    }
+}

@@ -1,0 +1,53 @@
+:host{
+    .drag-scroll-container{
+        position: relative;
+        padding-right: 0;
+        button{
+            position: absolute;
+            top: 50%;
+            border: none;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transform: translateY(-50%);
+            mat-icon{
+                font-size: 30px;  
+            }
+            &.leftBtn{
+                left: 10px;
+                padding-left: 10px;
+            }
+            &.rightBtn{
+                right: 10px;
+                padding-right: 10px;
+            }
+        }
+        .background{
+            width: 120px;
+            height: 100%;
+            position: absolute;
+            &.left{
+                left: 0px;
+                top: 0;
+                bottom: 0;
+                background: linear-gradient(270deg,transparent 0%,rgb(211, 206, 206) 100%) 0% 0% no-repeat padding-box;
+            }
+            &.right{
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background: linear-gradient(90deg,transparent 0%,rgb(211, 206, 206) 100%) 0% 0% no-repeat padding-box;
+            }
+        }
+    }
+    .scroll-container{
+        position: relative;
+        overflow-x: auto;
+        user-select: none;
+        margin: auto;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+}

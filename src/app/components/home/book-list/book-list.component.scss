@@ -1,0 +1,15 @@
+:host{
+    position: relative;
+    img {
+        max-width: 250px;
+        height: 300px;
+    }
+    a{
+        cursor: pointer;
+    }
+    .cross-text{
+        font-size: small;
+        text-decoration: line-through;
+    }
+    
+}

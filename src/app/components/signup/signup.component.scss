@@ -1,0 +1,61 @@
+:host {
+    .signup-container {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-image: url(../../../assets/bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-clip: border-box;
+        & mat-card {
+            background-color: aliceblue;
+            z-index: 300;
+            border-radius: 20px;
+            width: 500px;
+            position: relative;
+            padding: 20px;
+            border: 1px solid grey;
+            max-height: 80vh;
+            overflow-y: scroll;
+            &::-webkit-scrollbar{
+               display: none;
+            }
+            h1 {
+                text-align: center;
+                font-weight: 600;
+            }
+            form {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+            }
+            form {
+                mat-form-field {
+                    position: relative;
+                    padding: 15px 0px;
+                }
+                button {
+                    margin: 10px 0px;
+                    padding: 5px 0px;
+                    font-size: large;
+                }
+            }
+
+        }
+    }
+}
+// @media only screen and (max-height: 700px) {
+//     .signup-container{
+//         position: absolute;
+//         height: 80vh;
+//         mat-card{
+//             height: 80vh;
+//             overflow-y: scroll;
+//         }
+//     }
+
+// }

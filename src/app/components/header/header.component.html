@@ -1,0 +1,58 @@
+<header *ngIf="userDetails">
+  <!-- contact content -->
+  <div class="header-content-top">
+    <div class="content">
+      <span><i class="fas fa-phone-square-alt"></i> (00)0000-0000</span>
+      <span><i class="fas fa-envelope-square"></i>email@email.com.br</span>
+    </div>
+  </div>
+  <!-- / contact content -->
+  <div class="container">
+    <!-- logo -->
+    <strong class="logo"><i class="fas fa-heart"></i></strong>
+    <!-- open nav mobile -->
+
+    <!--search -->
+    <label class="open-search" for="open-search">
+      <i class="fas fa-search"></i>
+      <input class="input-open-search" id="open-search" type="checkbox" name="menu" />
+      <div class="search">
+        <button class="button-search"><i class="fas fa-search"></i></button>
+        <input type="text" placeholder="What are you looking for?" class="input-search" />
+      </div>
+    </label>
+    <!-- // search -->
+    <nav class="d-flex nav-content">
+      <ul class="nav-content-list">
+        <li class="nav-content-item"><a class="nav-content-link" ><i
+              class="fas fa-heart"></i></a></li>
+        <li class="nav-content-item"><a class="nav-content-link" routerLink="home/cart"><i
+              class="fas fa-shopping-cart"></i></a></li>
+      </ul>
+      <ul class="nav-content-list">
+        <li class="nav-content-item account-login">
+          <label class="open-menu-login-account" for="open-menu-login-account">
+
+            <input class="input-menu" id="open-menu-login-account" type="checkbox" name="menu" />
+
+            <i class="fas fa-user-circle fa-2x"></i><span routerLink="home/profile" class="login-text">Hello, {{userDetails?.userName}} </span>
+            <span class="item-arrow"></span>
+          </label>
+        </li>
+        <li class="nav-content-item mt-1"><a class="nav-content-link" >
+          <mat-icon (click)="authService.logOut()" >logout</mat-icon>
+        </a></li>
+      </ul>
+    </nav>
+  </div>
+  <!-- nav navigation commerce -->
+  <div class="nav-container">
+    <nav class="featured-category">
+      <ul class="nav-row">
+        <li class="nav-row-list"><a routerLink="home" class="nav-row-list-link">Home</a></li>
+        <li class="nav-row-list"><a class="nav-row-list-link">Orders</a></li>
+        <li class="nav-row-list"><a class="nav-row-list-link">Contact us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

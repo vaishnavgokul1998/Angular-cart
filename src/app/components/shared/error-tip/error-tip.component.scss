@@ -1,0 +1,36 @@
+:host{
+    position: relative;
+
+    .error-container{
+       width: 100%;
+       background-color: rgba(219, 214, 214, 0.562);
+       padding: 15px 0px;
+       border-left: 3px solid red;
+       mat-icon{
+           position: absolute;
+           top:13px;
+           left:10px;
+           color: red;
+       }
+       span{
+           padding-left: 35px;
+           font-size: 13px;
+       }
+    }
+    .success-container{
+        width: 100%;
+        background-color: rgba(219, 214, 214, 0.562);
+        padding: 15px 0px;
+        border-left: 3px solid green;
+        mat-icon{
+            position: absolute;
+            top:13px;
+            left:10px;
+            color: green;
+        }
+        span{
+            padding-left: 35px;
+            font-size: 13px;
+        }
+     }
+}

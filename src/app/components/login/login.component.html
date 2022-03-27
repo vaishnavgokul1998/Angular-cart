@@ -1,0 +1,32 @@
+<div class="login-container">
+    <mat-card>
+        <h1>Login</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" placeholder="" formControlName="email">
+                <mat-error *ngIf="checkError('email', 'email')">{{errors.email}}</mat-error>
+                <mat-error *ngIf="checkError('email', 'required')">{{errors.required}}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                <i mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </i>
+                <mat-error *ngIf="checkError('password', 'required')">{{errors.required}}</mat-error>
+            </mat-form-field>
+            <app-error-tip [show]="showTipMsg" [type]="showTipType" [msg]="signupResponseMsg"></app-error-tip>
+            <button mat-raised-button type="submit" [disabled]="!loginForm.valid" color="primary">Login</button>
+        </form>
+        <br>
+        <div class="signup-div">
+            <a routerLink="/signup">Don't have account? signup</a>
+        </div>
+
+    </mat-card>
+</div>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>

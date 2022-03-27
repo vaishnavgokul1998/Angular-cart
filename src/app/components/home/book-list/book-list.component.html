@@ -1,0 +1,26 @@
+<div class="card shadow-sm h-100">
+    <div class="clearfix">
+      <div class="float-end pt-1 pe-2">
+        <mat-icon style="color: red;" (click)="wishListClick()">{{book.isLiked=="YES" ? "favorite":"favorite_border"}}</mat-icon>
+      </div>
+    </div>
+    <div class="text-center p-2">
+        <img class="card-img-top " src="{{book.image_url}}" alt="Card image">
+    </div>
+    <div class="card-body">
+        <h4 class="card-title fw-bold">{{book.title}}</h4>
+        <div class="d-flex">
+            <p class="cross-text pe-1" *ngIf="book.discount > 0">{{book.price | currency:'INR'}}</p>
+            <p class="h6 pe-1">{{book.priceAfterDiscount | currency:'INR'}}</p>
+            <p class="h6 pe-1 text-success fw-bold" *ngIf="book.discount > 0">{{book.discount}}%</p>
+        </div>
+        <p class="card-text">{{book.subtitle}}</p>
+        <p class="card-text fw-bold">Author: {{book.author}}</p>
+        <p class="card-text">Published: {{book.published | date}}</p>
+        <a (click)="seeMoreClick(book)" class="float-start ">See More...</a><br>
+        <button (click)="buyProduct(book)" class="mt-2" mat-flat-button color="primary">
+            <mat-icon>add_shopping_cart</mat-icon> <span class="ms-1">Add to cart</span>
+        </button>
+        <!-- <button  class="float-start btn btn-success mt-2">Add to cart</button> -->
+    </div>
+</div>

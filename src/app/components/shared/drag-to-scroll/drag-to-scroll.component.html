@@ -1,0 +1,19 @@
+<div class="drag-scroll-container">
+    <div class="scroll-container" #scrollContainer>
+         <ng-content></ng-content>
+    </div>
+    <ng-container *ngIf="isLeft">
+        <div class="background left"></div>
+        <button class="leftBtn" (click)="onClick(scrollAxis.Left)">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_arrow_left</mat-icon>
+            <label >scroll</label>
+        </button>
+    </ng-container>
+    <ng-container *ngIf="isRight">
+        <div class="background right"></div>
+        <button class="rightBtn" (click)="onClick(scrollAxis.Right)">
+            <mat-icon aria-hidden="false"  aria-label="Example home icon">keyboard_arrow_right</mat-icon>
+            <label >scroll</label>
+        </button>
+    </ng-container>
+</div>

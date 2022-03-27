@@ -1,0 +1,24 @@
+:host {
+    position: relative;
+    img {
+        max-width: 250px;
+        height: 300px;
+    }
+    a {
+        cursor: pointer;
+    }
+    .cross-text {
+        font-size: small;
+        text-decoration: line-through;
+    }
+    mat-icon {
+        color: white;
+    }
+    .qty-counter {
+        cursor: pointer;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+}

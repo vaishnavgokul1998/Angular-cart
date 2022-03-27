@@ -1,0 +1,47 @@
+<div class="card p-2 position-fixed">
+    <div class="card-body">
+        <h4 class="text-center fw-bold">Bill Details</h4>
+        <div class="table-responsive"  style="max-height: 330px;">
+            <table class="table table-bordered ">
+                <thead>
+                    <tr>
+                        <th>S.no</th>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cart of cartList; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{cart.book.title}}</td>
+                        <td>{{cart.quantity}}</td>
+                        <td class="text-end">{{cart.quantity * cart.book.price | currency:'INR'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="clearfix">
+            <p class="float-start">Total Price:</p>
+            <p class="float-end fw-bold"> {{billDetail.totalPrice | currency:'INR'}}</p>
+        </div>
+        <div class="clearfix">
+            <p class="float-start">Discount Price:</p>
+            <p class="float-end fw-bold text-danger"> {{billDetail.discountPrice | currency:'INR'}}</p>
+        </div>
+        <div class="clearfix">
+            <p class="float-start">Delivery charge:</p>
+            <p class="float-end fw-bold text-success"> {{billDetail.deliveryCharge | currency:'INR'}}</p>
+        </div>
+        <div class="clearfix">
+            <p class="float-start">GST(18%):</p>
+            <p class="float-end fw-bold text-success"> {{billDetail.tax | currency:'INR'}}</p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="clearfix pt-1">
+            <p class="float-start">Total Amount:</p>
+            <p class="float-end fw-bold"> {{billDetail.totalAmountToPay | currency:'INR'}}</p>
+        </div>
+    </div>
+</div>
