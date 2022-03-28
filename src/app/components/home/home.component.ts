@@ -48,15 +48,20 @@ export class HomeComponent implements OnInit, OnDestroy {
   openDetail(book: Book) {
     this.selectedBook = book;
     // this.columnClass = false;
-    this.dialog.open(DialogComponent, {
+    const dialog = this.dialog.open(DialogComponent, {
       panelClass: 'book-dialog',
       width: '650px',
       data: {
         book: this.selectedBook
       }
     })
+    dialog.afterClosed().subscribe(result=>{
+       if(result){
+        this.addToCart(result)
+       }
+    })
   }
-  buyBook(book: Book) {
+  addToCart(book: Book) {
     let req: CartRequest = {
       bookId: book.id
     }

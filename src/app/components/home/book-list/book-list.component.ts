@@ -11,7 +11,7 @@ export class BookListComponent implements OnInit {
   @Input() book!: Book;
 
   @Output() seeMoreClickEmitter = new EventEmitter<Book>();
-  @Output() buyClickEmitter = new EventEmitter<Book>();
+  @Output() addToCartClickEmitter = new EventEmitter<Book>();
   @Output() wishListEmitter = new EventEmitter<Book>();
   constructor() { }
 
@@ -20,8 +20,8 @@ export class BookListComponent implements OnInit {
   seeMoreClick(book: Book) {
     this.seeMoreClickEmitter.emit(book)
   }
-  buyProduct(book: Book) {
-    this.buyClickEmitter.emit(book)
+  addToCart(book: Book) {
+    this.addToCartClickEmitter.emit(book)
   }
   wishListClick(){
     this.book.isLiked = this.book.isLiked == "YES" ? "NO":"YES"

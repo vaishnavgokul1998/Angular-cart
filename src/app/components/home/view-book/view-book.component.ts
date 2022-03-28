@@ -10,6 +10,7 @@ export class ViewBookComponent implements OnInit {
 
   @Input() book!:Book 
   @Output() wishListEmitter = new EventEmitter<Book>();
+  @Output() addToCartClickEmitter = new EventEmitter<Book>();
 
   constructor() { }
 
@@ -19,5 +20,8 @@ export class ViewBookComponent implements OnInit {
   wishListClick(){
     this.book.isLiked = this.book.isLiked == "YES" ? "NO":"YES"
     this.wishListEmitter.emit(this.book)
+  }
+  addToCart(){
+    this.addToCartClickEmitter.emit(this.book)
   }
 }

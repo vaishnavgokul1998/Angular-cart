@@ -18,7 +18,7 @@
         <p class="card-text fw-bold">Author: {{book.author}}</p>
         <p class="card-text">Published: {{book.published | date}}</p>
         <a (click)="seeMoreClick(book)" class="float-start ">See More...</a><br>
-        <button (click)="buyProduct(book)" class="mt-2" mat-flat-button color="primary">
+        <button (click)="addToCart(book)" class="mt-2" mat-flat-button color="primary">
             <mat-icon>add_shopping_cart</mat-icon> <span class="ms-1">Add to cart</span>
         </button>
         <!-- <button  class="float-start btn btn-success mt-2">Add to cart</button> -->
