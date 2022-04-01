@@ -22,7 +22,7 @@ export class RestApiService {
     public login(body: LoginRequest){
         return this.httpClient.post<LoginResposeModel>(this.urlString+'/authenticate',body).pipe(
             switchMap((res)=>{
-                this.authService.setToken(res.responseBody.jwtToken)
+                this.authService.setLoginInfo(res.responseBody)
                 return observableOf(res);
             })
         )

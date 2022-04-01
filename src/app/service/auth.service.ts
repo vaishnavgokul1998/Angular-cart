@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { UserDetail } from '../models/login/login.response.model';
+import { LoginRespose, UserDetail } from '../models/login/login.response.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -15,7 +15,7 @@ export class AuthService {
     }
 
     isLoggedIn(): boolean {
-        let value = localStorage.getItem('userDetails')
+        let value = localStorage.getItem('loginInfo')
         return value ? true : false
     }
 
@@ -31,16 +31,16 @@ export class AuthService {
         localStorage.setItem('userDetails', JSON.stringify(value))
     }
 
-    public getToken() {
-        let value = localStorage.getItem('jwtToken')
+    public getLoginInfo():LoginRespose | null {
+        let value = localStorage.getItem('loginInfo')
         if (value) {
-            return value;;
+            return JSON.parse(localStorage.getItem('loginInfo') || '{}');;;
         }
-       return null
+       return null;
     }
 
-    public setToken(token: string) {
-        localStorage.setItem('jwtToken', token)
+    public setLoginInfo(value: LoginRespose) {
+        localStorage.setItem('loginInfo', JSON.stringify(value))
     }
 
     public logOut() {

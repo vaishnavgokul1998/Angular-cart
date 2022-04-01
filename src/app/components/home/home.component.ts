@@ -32,7 +32,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     private router: Router,
     private cartService: CartService,
     private _snackBar: MatSnackBar,
-    private wishListService: WishListService
+    private wishListService: WishListService,
+    private authservice: AuthService
   ) { }
 
   ngOnInit(): void {
