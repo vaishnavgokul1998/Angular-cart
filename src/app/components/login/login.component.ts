@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/service/auth.service';
 import { RestApiService } from 'src/app/service/rest-api.service';
 import { LogOut, SetToken } from 'src/app/store/app.action';
 import { LoginRequest } from '../../models/login/login.request.model';
-import { LoginResponseModel } from '../../models/login/login.response.model';
+import { LoginResposeModel, UserDetailModel } from '../../models/login/login.response.model';
 
 
 @Component({
@@ -61,11 +61,14 @@ export class LoginComponent implements OnInit, OnDestroy {
       )
       .subscribe({
         next: (response) => {
-          let result: LoginResponseModel = response;
+          let result: LoginResposeModel = response;
           this.signupResponseMsg = result.responseCode.message;
           if (result.responseCode.code == ResponseStatus.SUCCESS) {
             this.showTipType = "success";
-            this.router.navigateByUrl('home');
+            this.restApiService.getUserDetails().subscribe(res=>{
+              this.router.navigateByUrl('home');
+
+            })
           } else {
             this.showTipType = "error";
           }

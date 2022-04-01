@@ -1,4 +1,4 @@
-import { LoginResponseModel } from "../models/login/login.response.model";
+import { UserDetailModel } from "../models/login/login.response.model";
 
 
 export class SetToken {
@@ -10,7 +10,7 @@ export class SetToken {
 export class SetUserDetails {
     static readonly type = '[App] SetUserDetails';
 
-    constructor(public userDetails: LoginResponseModel) {}
+    constructor(public userDetails: UserDetailModel) {}
 }
 
 export class LogOut {

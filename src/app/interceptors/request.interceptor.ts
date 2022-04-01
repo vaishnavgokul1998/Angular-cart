@@ -13,7 +13,7 @@ export class RequestInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         if (!req.url.endsWith("authenticate") && !req.url.endsWith('createUser')) {
-            const Authorization = 'Bearer ' + this.authService.getUserDetails()?.jwtToken;
+            const Authorization = 'Bearer ' + this.authService?.getToken();
             return next.handle(req.clone({ setHeaders: { Authorization } })).pipe(
                 catchError(
                     (err, caught) => {

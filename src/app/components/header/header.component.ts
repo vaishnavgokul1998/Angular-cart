@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginResponse } from 'src/app/models/login/login.response.model';
+import { UserDetail } from 'src/app/models/login/login.response.model';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class HeaderComponent implements OnInit {
  
-  userDetails!:LoginResponse | null
+  userDetails!:UserDetail | null
 
   constructor(
     public authService: AuthService

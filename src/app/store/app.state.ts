@@ -1,10 +1,10 @@
 import { Action, Selector, State, StateContext } from "@ngxs/store";
-import { LoginResponseModel } from "../models/login/login.response.model";
+import { UserDetailModel } from "../models/login/login.response.model";
 import { LogOut, SetToken, SetUserDetails } from "./app.action";
 
 export interface AppStateModel {
       jwtToken: string;
-      userDetails?:LoginResponseModel | null;
+      userDetails?:UserDetailModel | null;
 }
 const defaults: AppStateModel = {
     jwtToken: "",
