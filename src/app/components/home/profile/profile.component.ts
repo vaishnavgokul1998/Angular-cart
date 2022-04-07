@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { UserDetail } from 'src/app/models/login/login.response.model';
-import { AuthService } from 'src/app/service/auth.service';
-import { catchError, map } from 'rxjs/operators'
-import { HttpClient } from '@angular/common/http';
-import { LocatorService } from 'src/app/service/locator.service';
+import { AuthService } from '../../../service/auth.service';
+import { LocatorService } from '../../../service/locator.service';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
