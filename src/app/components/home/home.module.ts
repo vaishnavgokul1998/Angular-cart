@@ -11,8 +11,16 @@ import { DialogComponent } from './dialog/dialog.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { AddToCartModule } from './add-to-cart/add-to-cart.module';
 import { ProfileComponent } from './profile/profile.component';
+import { AgmCoreModule } from '@agm/core';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import { GoogleMapsModule } from '@angular/google-maps';
 
-
+declare module "@angular/core" {
+  interface ModuleWithProviders<T = any> {
+    ngModule: Type<T>;
+    providers?: Provider[];
+  }
+}
 @NgModule({
   declarations: [
     HomeComponent,
@@ -27,6 +35,9 @@ import { ProfileComponent } from './profile/profile.component';
     CustomMaterialModule,
     SharedModule,
     AddToCartModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
+    GoogleMapsModule
   ],
   entryComponents:[DialogComponent]
 })

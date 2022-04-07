@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    console.log(new Date("2022-04-01T11:54:00.236+0000"))
     this.authService.logOut();
     this.destroy$ = new Subject<void>()
 

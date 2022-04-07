@@ -15,24 +15,24 @@ export class AuthService {
     }
 
     isLoggedIn(): boolean {
-        let value = localStorage.getItem('loginInfo')
-        return value ? true : false
+        let value = localStorage.getItem('loginInfo');
+        return value ? true : false;
     }
 
     public getUserDetails() {
-        let value = localStorage.getItem('userDetails')
+        let value = localStorage.getItem('userDetails');
         if (value) {
             return JSON.parse(localStorage.getItem('userDetails') || '{}');
         }
-       return null
+       return null;
     }
     public setUserDetails(value: UserDetail) {
-        this.userDetailSubject.next(value)
-        localStorage.setItem('userDetails', JSON.stringify(value))
+        this.userDetailSubject.next(value);
+        localStorage.setItem('userDetails', JSON.stringify(value));
     }
 
     public getLoginInfo():LoginRespose | null {
-        let value = localStorage.getItem('loginInfo')
+        let value = localStorage.getItem('loginInfo');
         if (value) {
             return JSON.parse(localStorage.getItem('loginInfo') || '{}');;;
         }
@@ -40,13 +40,13 @@ export class AuthService {
     }
 
     public setLoginInfo(value: LoginRespose) {
-        localStorage.setItem('loginInfo', JSON.stringify(value))
+        localStorage.setItem('loginInfo', JSON.stringify(value));
     }
 
     public logOut() {
         localStorage.clear();
         this.userDetailSubject.next(null)
-        this.router.navigate(['/'])
+        this.router.navigate(['/']);
     }
 
 }

@@ -21,6 +21,7 @@ import { SignupModule } from './components/signup/signup.module';
 import { SpinnerCircularModule } from 'spinners-angular/spinner-circular';
 import { HomeModule } from './components/home/home.module';
 import { HeaderComponent } from './components/header/header.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { HeaderComponent } from './components/header/header.component';
     SharedModule,
     LoginModule,
     SignupModule,
-    HomeModule
+    HomeModule,
   ],
   providers: [
     ScrollDispatcher,
@@ -53,3 +54,10 @@ import { HeaderComponent } from './components/header/header.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+declare module "@angular/core" {
+  interface ModuleWithProviders<T = any> {
+    ngModule: Type<T>;
+    providers?: Provider[];
+  }
+}
