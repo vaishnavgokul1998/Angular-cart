@@ -10,7 +10,6 @@ import { CartService } from 'src/app/service/cart.service';
 import { WishListService } from 'src/app/service/wish-list.service';
 import { Book } from '../../models/home.response';
 import { AuthService } from '../../service/auth.service';
-import { HomeService } from '../../service/home.service';
 import { DialogComponent } from './dialog/dialog.component';
 
 @Component({

@@ -28,7 +28,8 @@ import { ViewBookComponent } from './view-book/view-book.component';
     AddToCartModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    
   ],
   entryComponents:[DialogComponent]
 })

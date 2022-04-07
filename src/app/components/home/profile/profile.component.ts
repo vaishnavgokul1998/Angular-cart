@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserDetail } from 'src/app/models/login/login.response.model';
 import { AuthService } from '../../../service/auth.service';
 import { LocatorService } from '../../../service/locator.service';
+import {MapGeocoder} from '@angular/google-maps';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -21,22 +23,40 @@ export class ProfileComponent implements OnInit {
       lng: 89
     }
   ];
-
+  geocoder = new google.maps.Geocoder();
   addMarker(event: google.maps.MapMouseEvent) {
     this.markerPositions.push(event?.latLng?.toJSON() as any);
   }
   constructor(
     private authService: AuthService,
-    private locatorService: LocatorService
+    private locatorService: LocatorService,
+    private httpClient:HttpClient
   ) {
-    // this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw', 'callback')
-    //     .pipe(
-    //       map(() => true),
-    //       catchError(() => of(false)),
-    //     );
+    // geocoder.geocode({
+    //   address: 'Sydney, NSW'
+    // }).subscribe(({results}) => {
+    //   console.log(results);
+    // });
+    
   }
 
   ngOnInit(): void {
+   this.httpClient.get("http://api.positionstack.com/v1/forward?access_key=25ba546c5b08330aeb0c6fceeeaa2894&query=1600%20Pennsylvania%20Ave%20NW,%20Washington%20DC")
+   .subscribe(res=>{
+     console.log(res)
+   })
+    this.geocoder.geocode( { 'address': "Sydney, NSW"}, function(results, status) {
+      console.log(results,status)
+      // if (status == 'OK') {
+      //   // map.setCenter(results[0].geometry.location);
+      //   // var marker = new google.maps.Marker({
+      //   //     map: map,
+      //   //     position: results[0].geometry.location
+      //   // });
+      // } else {
+      //   alert('Geocode was not successful for the following reason: ' + status);
+      // }
+    });
     this.userDetails = this.authService.getUserDetails();
     console.log(this.userDetails.memberJoinDate)
     this.locatorService.getPosition().then(pos => {
